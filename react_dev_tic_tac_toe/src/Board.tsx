@@ -3,17 +3,19 @@ import Square from "./Square";
 import { type SquareType } from "./Square";
 
 
-type BoardType = SquareType[]
+export type BoardType = SquareType[]
 
-
-const initState:BoardType = ["","","","","","","","",""]
 //const initState:BoardType = Array(9).fill('')
 
+type PropsType = {
+    xIsNext: boolean, 
+    squares: BoardType, 
+    onPlay: (squares: BoardType) => void;
+}
 
-function Board () {
 
-    const [xIsNext, setXIsNext] = useState(true);
-    const [squares, setSquares] = useState<BoardType>(initState);
+function Board ( {xIsNext, squares, onPlay}: PropsType ) {
+
 
 
     const winner: string = calculateWinner(squares);
@@ -36,8 +38,7 @@ function Board () {
         else
             nextSquares[i] = "O";
         
-        setSquares(nextSquares);
-        setXIsNext(!xIsNext);
+        onPlay(nextSquares);
     }
 
     return (
