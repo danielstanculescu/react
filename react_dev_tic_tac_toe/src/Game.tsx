@@ -10,9 +10,7 @@ const board: BoardType = ["","","","","","","","",""];
 const initState:HistoryType = [board];
 
 
-
 const Game = () => {
-    
     
     const [history, setHistory] = useState<HistoryType>(initState);
     const [currentMove, setCurrentMove] = useState(0);
@@ -27,14 +25,11 @@ const Game = () => {
         const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
         setHistory(nextHistory);
         setCurrentMove(nextHistory.length - 1)
-        setXIsNext(!xIsNext);
     }
 
     function jumpTo(nextMove: number): void {  // todo typescript
 
         setCurrentMove(nextMove);
-        setXIsNext(nextMove % 2 === 0);     // recheck
-
 
         const result = history.filter((item) => history.indexOf(item) <= nextMove )
         setHistory(result);
