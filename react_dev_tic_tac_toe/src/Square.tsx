@@ -1,19 +1,18 @@
-import { useState } from "react";
+import { useState, type ReactElement } from "react";
 
+export type SquareType = string;
 
-const Square = ( ) => {
+type PropsType = {
+    value: string,
+    onSquareClick: () => void
+}
 
-    const [value, setValue] = useState('');
-
-    function handleClick() {
-        //console.log('clicked');
-        setValue('X');
-    }
+const Square = ( {value, onSquareClick}: PropsType ) => {
 
     return (
         <button 
             className="square"
-            onClick={handleClick}
+            onClick={onSquareClick}
         >
             {value}
         </button>
