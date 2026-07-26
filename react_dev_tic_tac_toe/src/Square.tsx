@@ -1,5 +1,3 @@
-import { useState, type ReactElement } from "react";
-
 export type SquareType = string;
 
 type PropsType = {

@@ -15,10 +15,7 @@ const Game = () => {
     const [history, setHistory] = useState<HistoryType>(initState);
     const [currentMove, setCurrentMove] = useState(0);
     const currentSquares: BoardType = history[currentMove];
-
-    //const [xIsNext, setXIsNext] = useState(true);
     const xIsNext = currentMove % 2 === 0;
-    
   
     function handlePlay(nextSquares: BoardType) {
 
@@ -31,8 +28,8 @@ const Game = () => {
 
         setCurrentMove(nextMove);
 
-        const result = history.filter((item) => history.indexOf(item) <= nextMove )
-        setHistory(result);
+        //const result = history.filter((item) => history.indexOf(item) <= nextMove )
+        //setHistory(result);
     }
 
     const moves = history.map((squares: BoardType, move: number): ReactElement => {
@@ -40,7 +37,7 @@ const Game = () => {
         let description;
         
         if(move > 0){
-            description = 'Go t move # ' + move;
+            description = 'Go to move # ' + move;
         }
         else{
             description = 'Go to game start';
