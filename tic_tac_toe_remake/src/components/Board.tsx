@@ -1,16 +1,15 @@
 import { type ReactElement } from 'react'
 import Square from './Square'
-
-//const board: string[] = ['','','','','','','','','']
-const board: string[] = Array(9).fill('');
+import { type SquareLocation } from './Square';
 
 type boardProps = {
     squares: string[],
     xIsNext: boolean,
-    onPlay: (squares: string[]) => void 
+    numberOfMoves: number,
+    onPlay: (squares: string[], location: SquareLocation) => void 
 }
 
-const computeWinner = (squares: string[]): boolean => {
+const computeWinner = (squares: string[]): number[] => {
 
     const lines: number[][] = [
         [0, 1, 2],
@@ -26,21 +25,19 @@ const computeWinner = (squares: string[]): boolean => {
     for (let i=0; i<lines.length; i++){
         const [a, b, c]: number[] = lines[i];
         if(squares[a] !== '' && squares[a] === squares[b] && squares[a] === squares[c]){
-            return true;
+            return [a,b,c];
         }
     }
-    return false;
+    return [-1,-1,-1];
 }
 
-const Board = ( {squares, xIsNext, onPlay}: boardProps) => {
+const Board = ( {squares, xIsNext, numberOfMoves, onPlay}: boardProps) => {
 
-    //const [squares, setSquares] = useState(board);
+    const isWinner: number[] = computeWinner(squares);
 
-    const isWinner: boolean = computeWinner(squares);
+    function handleSquareClick(i: number, location: SquareLocation){
 
-    function handleSquareClick(i: number){
-
-        if(squares[i] !== '' || isWinner){
+        if(squares[i] !== '' || isWinner[0] !== -1){
             return;
         }
             
@@ -50,55 +47,103 @@ const Board = ( {squares, xIsNext, onPlay}: boardProps) => {
         else
             newSquares[i] = 'O';
 
-        onPlay(newSquares);
+        onPlay(newSquares, location);
     }
 
-    const displayNextMove = (win: boolean) : ReactElement => {
+    const displayNextMove = () : ReactElement => {
         
         let content: ReactElement;
         
-        if(win)
+        if(numberOfMoves == 10)
         {
-            if(xIsNext){
-                content = <>Winner is O</>
+            content = <>The result is a draw</>
+        }
+        else
+        {
+            if(isWinner[0] !== -1)
+            {
+                if(xIsNext){
+                    content = <>Winner is O</>
+                }
+                else{
+                    content = <>Winner is X</>
+                }
             }
             else{
-                content = <>Winner is X</>
+                if(xIsNext){
+                    content = <>Next is X</>
+                }
+                else{
+                    content = <>Next is O</>
+                }
+                
             }
         }
-        else{
-            if(xIsNext){
-                content = <>Next is X</>
-            }
-            else{
-                content = <>Next is O</>
-            }
-            
-        }
+        
         return ( content );
     }
 
-  return (
+
+    const writeSquaresBody = (i: number): ReactElement[] => {
+        
+        let content: ReactElement[] = [];
+
+        const [a, b, c]: number[] = isWinner;
+
+        for (let j = 0; j < 3; j++) {
+            
+            let index = j + (3 * i);
+            let squareContent: ReactElement = <></>;
+
+            let color = '';
+            
+            // is winner
+            if(a !== -1)
+            {
+                if(index === a || index === b || index === c)
+                {
+                    color = 'green';
+                }
+                else
+                {
+                    color = '';
+                }
+            }
+            // not winner
+            else
+            {
+                color = '';
+            }
+            
+            const location: SquareLocation = {x: i, y: index};
+            squareContent = <Square key={index} value={squares[index]} id={index} color={color} location={location} handleClick={(i:number, sl:SquareLocation) => handleSquareClick(i, sl)} />;
+
+            content[j] = squareContent;
+        }
+
+        return content;
+    }
+
+    const writeSquares = (): ReactElement[] => {
+
+        let content: ReactElement[] = [];
+
+        for (let i = 0; i < 3; i++) {
+            let c: ReactElement = 
+                <div className="board-row" key={i}>
+                    {writeSquaresBody(i)}
+                </div> ;
+            content[i] = c;
+        }
+
+        return content;
+    }
+
+    return (
     <>
-        <div className="status">{displayNextMove(isWinner)}</div>
-        <div className="board-row">
-            <Square value={squares[0]} id={0} handleClick={(ide:number) => handleSquareClick(ide)}/>
-            {/*<Square value={squares[0]} handleClick={() => handleSquareClick(0)}/>*/}
-            <Square value={squares[1]} id={1} handleClick={handleSquareClick}/>
-            <Square value={squares[2]} id={2} handleClick={handleSquareClick}/>
-        </div>
-        <div className="board-row">
-            <Square value={squares[3]} id={3} handleClick={handleSquareClick}/>
-            <Square value={squares[4]} id={4} handleClick={handleSquareClick}/>
-            <Square value={squares[5]} id={5} handleClick={handleSquareClick}/>
-        </div>
-        <div className="board-row">
-            <Square value={squares[6]} id={6} handleClick={handleSquareClick}/>
-            <Square value={squares[7]} id={7} handleClick={handleSquareClick}/>
-            <Square value={squares[8]} id={8} handleClick={handleSquareClick}/>
-        </div>
+        <div className="status">{displayNextMove()}</div>
+        {writeSquares()}
     </>
-    
   )
 }
 
