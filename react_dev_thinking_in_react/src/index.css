@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 5px;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 20px;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+    unicode-bidi: isolate;
+}
+
+label {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+table {
+    display: table;
+    box-sizing: border-box;
+    border-collapse: separate;
+    text-indent: initial;
+    unicode-bidi: isolate;
+    border-spacing: 2px;
+}
