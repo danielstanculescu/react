@@ -24,16 +24,17 @@ export class Queue<T> {
         this.items[this.size++] = item;
     }
 
-    public dequeue(): void{
+    public dequeue(): T|null{
         if(this.size === 0){
             console.log("Queue Undeflow");
-            return;
+            return null;
         }
-
+        const item: T = this.items[0];
         for (let index = 1; index < this.size; index++) {
             this.items[index - 1] = this.items[index];
         }
         this.size--;
+        return item;
     }
 
     public getFront = (): T | null => {
