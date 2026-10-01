@@ -11,6 +11,8 @@ import AppSimpleHashMapSeparateChaining from './Applications/HashMap/AppSimpleHa
 import AppBinarySearchTree from './Applications/BinarySearchTree/AppBinarySearchTree'
 import AppMinHeap from './Applications/Heap/MinHeap/AppMinHeap'
 import AppMaxHeap from './Applications/Heap/MaxHeap/AppMaxHeap'
+import AppGraphs from './Applications/Graph/AppGraphs'
+import AppDijkstra from './Applications/Graph/AppDijkstra/AppDijkstra'
 
 function App() {
 
@@ -87,6 +89,18 @@ function App() {
       <div>Response from the component AppMaxHeap </div>
       <div>
         <AppMaxHeap />
+      </div>
+
+      <div>Test Graph</div>
+      <div>Response from the component AppGraph </div>
+      <div>
+        <AppGraphs />
+      </div>
+
+      <div>Test AppDijkstra</div>
+      <div>Response from the component AppDijkstra </div>
+      <div>
+        <AppDijkstra />
       </div>
     </>
   )

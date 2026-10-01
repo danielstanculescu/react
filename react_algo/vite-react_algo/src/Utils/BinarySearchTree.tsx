@@ -186,7 +186,7 @@ export class BinarySearchTree{
             const n: Node|null|undefined = q.dequeue();
 
             if(n !== null && n !== undefined){
-                console.log(n.value);
+                //console.log(n.value);
 
                 if(n.left !== undefined)
                     q.enqueue(n.left);

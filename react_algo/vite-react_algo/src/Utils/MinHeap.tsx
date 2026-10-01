@@ -67,7 +67,7 @@ export class MinHeap {
 
         this.heapifyVersionWithUndefinedValues(tab, this.size, 0);
 
-        if(this.size / tab.length <= 0.5)
+        if(this.size === 0 && this.size / tab.length <= 0.5)
             tab = this.resizeDown();
 
         this.table = tab.slice();
@@ -79,6 +79,10 @@ export class MinHeap {
         return this.table[0];
     }
 
+    public isEmpty(): boolean{
+        return this.size === 0;
+    }
+    
     public transformMinHeap(tab: number[]): number[] {
         let newTab: number[] = tab;
         let n: number = newTab.length;
@@ -155,7 +159,7 @@ export class MinHeap {
         let newTab: (number|undefined)[];
         let tab: (number|undefined)[] = this.table.slice();
 
-        newTab = Array(Math.floor(this.size / 2));
+        newTab = Array(this.size);
         for (let index = 0; index < tab.length; index++) {
             newTab[index] = tab[index];
         }
