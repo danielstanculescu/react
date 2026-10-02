@@ -1,4 +1,4 @@
-import { StackWithArrayFunctionsPushPop } from "../../Utils/StackWithArrayFunctionsPushPop";
+import { StackWithArrayFunctionsPushPop } from "../../../Utils/StackWithArrayFunctionsPushPop";
 
 const StackApp = () => {
 

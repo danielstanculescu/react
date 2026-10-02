@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { Queue } from "../../Utils/Queue"
+import { Queue } from "../../../Utils/Queue"
 
 const QueueApp = () => {
   

@@ -1,4 +1,4 @@
-import { BinarySearchTree } from "../../Utils/BinarySearchTree"
+import { BinarySearchTree } from "../../../Utils/BinarySearchTree";
 
 const AppBinarySearchTree = () => {
 

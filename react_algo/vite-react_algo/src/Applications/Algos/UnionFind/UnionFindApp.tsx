@@ -1,5 +1,5 @@
 import type { ReactElement } from 'react';
-import { WeightedQuickUnionFind } from '../../Utils/WeightedQuickUnionFind';
+import { WeightedQuickUnionFind } from '../../../Utils/WeightedQuickUnionFind';
 
 
 const UnionFindApp = () => {

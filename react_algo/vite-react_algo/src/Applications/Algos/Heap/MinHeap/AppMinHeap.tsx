@@ -1,4 +1,4 @@
-import { MinHeap } from "../../../Utils/MinHeap"
+import { MinHeap } from "../../../../Utils/MinHeap"
 
 const AppMinHeap = () => {
 

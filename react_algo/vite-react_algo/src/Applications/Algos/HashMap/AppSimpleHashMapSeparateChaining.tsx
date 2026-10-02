@@ -1,4 +1,4 @@
-import { SimpleHashMapSeparateChaining } from '../../Utils/SimpleHashMapSeparateChaining'
+import { SimpleHashMapSeparateChaining } from '../../../Utils/SimpleHashMapSeparateChaining'
 
 const AppSimpleHashMapSeparateChaining = () => {
   

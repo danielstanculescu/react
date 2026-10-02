@@ -1,7 +1,7 @@
-import { DirectedGraphAdjacencyList } from "../../Utils/Graph/DirectedGraphAdjacencyList";
-import { DirectedGraphAdjacencyMatrix } from "../../Utils/Graph/DirectedGraphAdjacencyMatrix";
-import { UndirectedGraphAdjacencyList } from "../../Utils/Graph/UndirectedGraphAdjacencyList";
-import { UndirectedGraphAdjacencyMatrix } from "../../Utils/Graph/UndirectedGraphAdjacencyMatrix"
+import { DirectedGraphAdjacencyList } from "../../../Utils/Graph/DirectedGraphAdjacencyList";
+import { DirectedGraphAdjacencyMatrix } from "../../../Utils/Graph/DirectedGraphAdjacencyMatrix";
+import { UndirectedGraphAdjacencyList } from "../../../Utils/Graph/UndirectedGraphAdjacencyList";
+import { UndirectedGraphAdjacencyMatrix } from "../../../Utils/Graph/UndirectedGraphAdjacencyMatrix"
 
 const AppGraphs = () => {
 

@@ -1,4 +1,4 @@
-import { LinkedList } from "../../Utils/LinkedList"
+import { LinkedList } from "../../../Utils/LinkedList"
 
 const LinkedListApp = () => {
 

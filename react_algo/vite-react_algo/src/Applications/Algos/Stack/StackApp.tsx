@@ -1,4 +1,4 @@
-import { Stack } from "../../Utils/Stack"
+import { Stack } from "../../../Utils/Stack"
 
 const StackApp = () => {
 

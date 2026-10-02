@@ -105,4 +105,15 @@ export class LinkedList<T> {
         return this.size;
     }
 
+    public toString(): string {
+        let ret: string = "";
+        let current: Node<T>|null = this.head;
+        while(current !== null){
+            ret += current.data + " -> ";
+            current = current.next;
+        }
+
+        return ret;
+    }
+
 }

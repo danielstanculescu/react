@@ -11,7 +11,7 @@ Dijkstra shortest path is:
 
 */
 
-import { MinHeapGeneric } from "../../../Utils/MinHeapGeneric";
+import { MinHeapGeneric } from "../../../../Utils/MinHeapGeneric";
 
 
 interface GraphNode {

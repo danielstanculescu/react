@@ -1,4 +1,4 @@
-import { WeightedQuickUnionFind } from "../../Utils/WeightedQuickUnionFind";
+import { WeightedQuickUnionFind } from "../../../Utils/WeightedQuickUnionFind";
 
 export class Percolation {
     private n:number

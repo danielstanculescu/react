@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react';
-import { Dequeue } from '../../Utils/Dequeue'
+import { Dequeue } from '../../../Utils/Dequeue';
+
 
 const DequeueApp = ():ReactElement => {
 

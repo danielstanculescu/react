@@ -1,4 +1,4 @@
-import { HashMap } from "../../Utils/HashMap"
+import { HashMap } from "../../../Utils/HashMap"
 
 const HashMapApp = () => {
 

@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { MaxHeap } from "../../../Utils/MaxHeap"
+import { MaxHeap } from "../../../../Utils/MaxHeap"
 
 const AppMaxHeap = () => {
 
