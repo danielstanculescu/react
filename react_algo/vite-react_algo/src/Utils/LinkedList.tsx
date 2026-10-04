@@ -116,4 +116,14 @@ export class LinkedList<T> {
         return ret;
     }
 
+    public contains(data: T): boolean {
+        let current: Node<T>|null = this.head;
+        while(current !== null){
+            if(current.data === data){
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
 }

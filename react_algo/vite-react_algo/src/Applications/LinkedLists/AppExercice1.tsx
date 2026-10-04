@@ -1,7 +1,9 @@
 import { LinkedList } from '../../Utils/LinkedList'
-import { removeDuplicatesFromAnUnsortedLinkedList } from './Exercice1';
+import { deleteDup2_withMultipleDuplicates, deleteDup_withMultipleDuplicates, removeDuplicatesFromAnUnsortedLinkedList, testDeleteDups_withMultipleDuplicates } from './Exercice1';
 
 const AppExercice1 = () => {
+
+  /* first version
 
     let list: LinkedList<number> = new LinkedList<number>();
 
@@ -23,10 +25,16 @@ const AppExercice1 = () => {
 
     const output = printOutput();
 
+  */
+
+    //const output: string = deleteDup_withMultipleDuplicates();
+    const output: string = deleteDup2_withMultipleDuplicates();
+    
   return (
     <div>
       {output}
     </div>
+
   )
 }
 

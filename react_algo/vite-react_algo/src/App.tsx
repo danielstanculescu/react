@@ -5,6 +5,7 @@ import './App.css'
 //import AppExercice2 from './Applications/ArraysAndStrings/AppExercice2'
 
 import AppExercice1 from './Applications/LinkedLists/AppExercice1'
+import AppExercice2 from './Applications/LinkedLists/AppExercice2'
 
 function App() {
 
@@ -16,10 +17,12 @@ function App() {
 
   //LinkedLists
   //<AppExercice1 />
+  //<AppExercice2 />
 
   return (
     <>
       <AppExercice1 />
+      <AppExercice2 />
     </>
   )
 }
